@@ -1,0 +1,18 @@
+docker-compose down  
+docker system prune -af  
+docker-compose up build
+docker-compose up -d 
+
+📊 เข้า phpMyAdmin ที่:
+http://localhost:8081
+Username: root
+Password: rootpassword (หรือที่คุณตั้งไว้ใน docker-compose.yml)
+
+สร้างตาราง users ในฐานข้อมูล webapp
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
